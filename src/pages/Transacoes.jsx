@@ -142,6 +142,19 @@ export function Transactions({ ctx, act }) {
               <option key={y}>{y}</option>
             ))}
           </select>
+          {(q || tipo !== "todos" || plat !== "todas" || ano !== "todos") && (
+            <button
+              className="btn btn-sm btn-ghost"
+              onClick={() => {
+                setQ("");
+                setTipo("todos");
+                setPlat("todas");
+                setAno("todos");
+              }}
+            >
+              Limpar filtros
+            </button>
+          )}
           <span className="small muted" style={{ marginLeft: "auto" }}>
             {list.length} de {db.transactions.length}
           </span>

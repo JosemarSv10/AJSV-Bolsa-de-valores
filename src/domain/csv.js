@@ -16,7 +16,7 @@ export function parseDecimal(s) {
 // Aceita AAAA-MM-DD e também DD/MM/AAAA (formato comum nos extratos bancários)
 export function normalizeDate(s) {
   const m = String(s).trim().match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
-  return m ? ${m[3]}-${m[2]}-${m[1]} : String(s).trim();
+    return m ? m[3] + "-" + m[2] + "-" + m[1] : String(s).trim();
 }
 
 export function validDate(s) {

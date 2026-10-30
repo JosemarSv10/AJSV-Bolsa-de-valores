@@ -10,6 +10,7 @@ export function Assets({ ctx, go, act }) {
   const { rows, db, M, quoteState } = ctx;
   const [cls, setCls] = useState("todos");
   const [plat, setPlat] = useState("todas");
+  const [moeda, setMoeda] = useState("todas");
   const [q, setQ] = useState("");
   const [sort, setSort] = useState({ k: "valueM", d: -1 });
   const [showZero, setShowZero] = useState(false);
@@ -17,6 +18,7 @@ export function Assets({ ctx, go, act }) {
     (r) =>
       (cls === "todos" || r.a.classe === cls) &&
       (plat === "todas" || r.a.plataforma === plat) &&
+      (moeda === "todas" || r.a.moeda === moeda) &&
       (showZero || r.pos.qty > 0 || r.pos.count === 0) &&
       (!q || (r.a.nome + " " + r.a.codigo).toLowerCase().includes(q.toLowerCase()))
   );
@@ -109,6 +111,17 @@ export function Assets({ ctx, go, act }) {
                   {p.nome}
                 </option>
               ))}
+            </select>
+            <select
+              value={moeda}
+              onChange={(e) => setMoeda(e.target.value)}
+              style={{ width: "auto" }}
+              aria-label="Moeda"
+            >
+              <option value="todas">Todas as moedas</option>
+              <option value="AOA">AOA</option>
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
             </select>
             <label className="row small" style={{ gap: "8px", cursor: "pointer" }}>
               <Switch checked={showZero} onChange={setShowZero} label="Mostrar posições fechadas" />

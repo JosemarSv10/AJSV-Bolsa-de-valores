@@ -24,3 +24,4 @@ no navegador (localStorage).
 - Cotações automáticas via API
 - Contas de utilizador e base de dados
 - Gráfico de evolução ao longo do tempo
+

@@ -26,7 +26,6 @@ no navegador (localStorage).
 - Gráfico de evolução ao longo do tempo
 
 ## Equipa 
-## Equipa
 
 | Membro | Contribuição |
 | Valdniro Albino | Filtro por moeda no ecrã de ativos |

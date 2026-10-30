@@ -13,6 +13,12 @@ export function parseDecimal(s) {
   return parseFloat(t.replace(",", "."));
 }
 
+// Aceita AAAA-MM-DD e também DD/MM/AAAA (formato comum nos extratos bancários)
+export function normalizeDate(s) {
+  const m = String(s).trim().match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+  return m ? ${m[3]}-${m[2]}-${m[1]} : String(s).trim();
+}
+
 export function validDate(s) {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(s)) return false;
   const d = new Date(s + "T12:00:00");
@@ -60,7 +66,8 @@ export function importCsv(text, db) {
       bad(`Esperadas 6 colunas, encontradas ${c.length}.`);
       continue;
     }
-    const [data, codigo, tipoRaw, qRaw, pRaw, moedaRaw] = c;
+    const [dataRaw, codigo, tipoRaw, qRaw, pRaw, moedaRaw] = c;
+    const data = normalizeDate(dataRaw);
     if (!validDate(data)) {
       bad("Data inválida. Use AAAA-MM-DD.");
       continue;

@@ -24,3 +24,12 @@ no navegador (localStorage).
 - Cotações automáticas via API
 - Contas de utilizador e base de dados
 - Gráfico de evolução ao longo do tempo
+
+## Equipa 
+## Equipa
+
+| Membro | Contribuição |
+| Valdniro Albino | Filtro por moeda no ecrã de ativos |
+| Antonio Fontes | Importação de CSV com datas DD/MM/AAAA |
+| Josemar da Silva | Testes dos rendimentos mensais do painel |
+| Nome do colega 4 | Documentação da equipa |
